@@ -94,20 +94,78 @@
 
 // export default App;
 // chức năng todolist
-import { useState, useEffect } from 'react'
+
+
+// import { useState ,useEffect} from 'react'
+ 
+// function App() {
+//   const arrtype = ['posts','comments','albums']
+//   const [show, setshow] = useState(true)
+// const [type, settype] = useState('comments')
+// const [post, setpost] =useState([])
+// const [gototop, setgototop] = useState(false)
+// useEffect(() =>{
+//   fetch(`https://jsonplaceholder.typicode.com/${type}`)
+// .then( abc => abc.json())
+// .then( posts => {setpost(posts);})
+// },[type])
+// useEffect(() =>{
+//   const metmoi =() =>{setgototop(window.scrollY >= 200)}
+//   window.addEventListener('scroll',metmoi)
+// return () => {window.removeEventListener('scroll',metmoi)}
+// },[])
+  
+//   return (
+//     <div className="App">
+      
+//       <button onClick={() => setshow(!show)}>toggue</button><br></br>
+//    <div>
+//    {arrtype.map(ele =>(
+//   <button key ={ele}
+//   onClick={() => settype(ele)}>
+//     {ele}
+//   </button>
+  
+//   ))}
+//    </div>
+//   {show && (<ul>{post.map(ele=>(<li key={ele.id}>{ele.title}</li>))}</ul>)} 
+//   {gototop && <button 
+//   style={{position: 'fixed',bottom: 20,right:20}}>gototop</button>}
+//       </div>
+    
+    
+//   );
+// }
+
+// export default App;
+// xem thỉ biết  chỉ có thể nói chức năng là fake api(không biết có đúng ko nữa)
+
+
+import { useState ,useEffect} from 'react'
  
 function App() {
-  const [listjob,Setlistjob] = useState([]);
-  const [job,Setjob] = useState('');
-  useEffect(function(){
-    return(fetch('https://jsonplaceholder.typicode.com/posts')
-    .then (abc =>abc.json())
-    .then(job =>{console.log(job)}))
-  })
+  
+  const [show, setshow] = useState(true)
+
+const [count, setcount] = useState(180)
+useEffect(() => {
+  const qwert = setInterval(() => {
+    setcount(pre => pre -1)
+  }, 1000)
+ return () => clearInterval(qwert)
+}, [])
+
+  
   return (
     <div className="App">
       
-      
+      <button onClick={() => setshow(!show)}>toggue</button><br></br>
+   <div>
+   
+   </div>
+  {show && (<h1>{count}</h1>
+  )} 
+  
       </div>
     
     
@@ -115,3 +173,5 @@ function App() {
 }
 
 export default App;
+
+// chức năng đếm ngược
