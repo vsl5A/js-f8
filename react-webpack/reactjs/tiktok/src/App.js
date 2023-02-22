@@ -141,31 +141,89 @@
 // xem thỉ biết  chỉ có thể nói chức năng là fake api(không biết có đúng ko nữa)
 
 
-import { useState ,useEffect} from 'react'
+// import { useState ,useEffect} from 'react'
+ 
+// function App() {
+  
+//   const [show, setshow] = useState(true)
+
+// const [count, setcount] = useState(180)
+// useEffect(() => {
+//   const qwert = setInterval(() => {
+//     setcount(pre => pre -1)
+//   }, 1000)
+//  return () => clearInterval(qwert)
+// }, [])
+
+  
+//   return (
+//     <div className="App">
+      
+//       <button onClick={() => setshow(!show)}>toggue</button><br></br>
+//    <div>
+   
+//    </div>
+//   {show && (<h1>{count}</h1>
+//   )} 
+  
+//       </div>
+    
+    
+//   );
+// }
+
+// export default App;
+
+// chức năng đếm ngược
+import { useState, useRef } from 'react'
  
 function App() {
-  
-  const [show, setshow] = useState(true)
-
-const [count, setcount] = useState(180)
-useEffect(() => {
-  const qwert = setInterval(() => {
-    setcount(pre => pre -1)
-  }, 1000)
- return () => clearInterval(qwert)
-}, [])
-
-  
+  const [listjob,Setlistjob] = useState([]);
+  const [job,Setjob] = useState('');
+  const ele_fou = useRef();
+  // const [listjoba,Setlistjoba] = useState([]);
   return (
     <div className="App">
       
-      <button onClick={() => setshow(!show)}>toggue</button><br></br>
-   <div>
-   
-   </div>
-  {show && (<h1>{count}</h1>
-  )} 
-  
+      <input ref={ele_fou} value={job ||''} onChange={e =>Setjob(e.target.value)}></input>
+      <button onClick={function(){
+        Setlistjob(pre =>[...pre,job]);
+        // Setlistjoba(listjob)
+        Setjob('');
+         ele_fou.current.focus();
+    
+    }}>regis</button>
+      <ul>{listjob.map(function(ele,index)
+      {return (
+      <li key={index}>
+        {
+        <div>{ele} 
+        <span onClick={function(){
+          // const abcd = listjob;
+          // abcd.splice(index,1,);
+          Setjob(listjob.splice(index,1))
+            Setlistjob(listjob)
+
+        }}>&times;
+        </span>
+        
+        
+        </div>
+        }
+        
+        </li>
+                
+                
+                
+
+              )
+      
+      }
+      )
+      
+      }
+      
+      </ul>
       </div>
     
     
@@ -173,5 +231,4 @@ useEffect(() => {
 }
 
 export default App;
-
-// chức năng đếm ngược
+// chức năng todo_list update cần nghiên cứu lại
