@@ -229,6 +229,9 @@ function App() {
     
   );
 }
+const ABC = listjob;
+ABC.splice(index,1);
+Setlistjob(ABC);
 
 export default App;
 // chức năng todo_list update cần nghiên cứu lại
