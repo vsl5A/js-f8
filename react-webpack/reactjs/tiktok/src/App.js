@@ -181,14 +181,14 @@ function App() {
   const [listjob,Setlistjob] = useState([]);
   const [job,Setjob] = useState('');
   const ele_fou = useRef();
-  // const [listjoba,Setlistjoba] = useState([]);
+   const [listjoba,Setlistjoba] = useState([]);
   return (
     <div className="App">
       
       <input ref={ele_fou} value={job ||''} onChange={e =>Setjob(e.target.value)}></input>
       <button onClick={function(){
         Setlistjob(pre =>[...pre,job]);
-        // Setlistjoba(listjob)
+        
         Setjob('');
          ele_fou.current.focus();
     
@@ -199,12 +199,10 @@ function App() {
         {
         <div>{ele} 
         <span onClick={function(){
-          // const abcd = listjob;
-          // abcd.splice(index,1,);
-          Setjob(listjob.splice(index,1))
-            Setlistjob(listjob)
-
-        }}>&times;
+          
+             Setlistjoba(listjob.splice(index,1))
+             
+            }}>&times;
         </span>
         
         
@@ -212,11 +210,7 @@ function App() {
         }
         
         </li>
-                
-                
-                
-
-              )
+           )
       
       }
       )
@@ -229,9 +223,7 @@ function App() {
     
   );
 }
-const ABC = listjob;
-ABC.splice(index,1);
-Setlistjob(ABC);
+
 
 export default App;
-// chức năng todo_list update cần nghiên cứu lại
+// chức năng todo_list update 
