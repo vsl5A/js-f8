@@ -175,50 +175,73 @@
 // export default App;
 
 // chức năng đếm ngược
-import { useState, useRef } from 'react'
+// import { useState, useRef } from 'react'
  
-function App() {
-  const [listjob,Setlistjob] = useState([]);
-  const [job,Setjob] = useState('');
-  const ele_fou = useRef();
-   const [listjoba,Setlistjoba] = useState([]);
-  return (
-    <div className="App">
+// function App() {
+//   const [listjob,Setlistjob] = useState([]);
+//   const [job,Setjob] = useState('');
+//   const ele_fou = useRef();
+//    const [listjoba,Setlistjoba] = useState([]);
+//   return (
+//     <div className="App">
       
-      <input ref={ele_fou} value={job ||''} onChange={e =>Setjob(e.target.value)}></input>
-      <button onClick={function(){
-        Setlistjob(pre =>[...pre,job]);
+//       <input ref={ele_fou} value={job ||''} onChange={e =>Setjob(e.target.value)}></input>
+//       <button onClick={function(){
+//         Setlistjob(pre =>[...pre,job]);
         
-        Setjob('');
-         ele_fou.current.focus();
+//         Setjob('');
+//          ele_fou.current.focus();
     
-    }}>regis</button>
-      <ul>{listjob.map(function(ele,index)
-      {return (
-      <li key={index}>
-        {
-        <div>{ele} 
-        <span onClick={function(){
+//     }}>regis</button>
+//       <ul>{listjob.map(function(ele,index)
+//       {return (
+//       <li key={index}>
+//         {
+//         <div>{ele} 
+//         <span onClick={function(){
           
-             Setlistjoba(listjob.splice(index,1))
+//              Setlistjoba(listjob.splice(index,1))
              
-            }}>&times;
-        </span>
+//             }}>&times;
+//         </span>
         
         
-        </div>
-        }
+//         </div>
+//         }
         
-        </li>
-           )
+//         </li>
+//            )
       
-      }
-      )
+//       }
+//       )
       
-      }
+//       }
       
-      </ul>
+//       </ul>
+//       </div>
+    
+    
+//   );
+// }
+
+
+// export default App;
+// // chức năng todo_list update 
+import { useState, createContext} from 'react'
+import Abc from './Abc'; 
+export const ThemeContext = createContext()
+console.log(ThemeContext)
+function App() {
+  const [theme, Settheme]= useState('dark')
+  const toggle = () => {Settheme(theme === 'dark' ? 'light' : 'dark')}
+  
+  return (
+   <ThemeContext.Provider value ={theme}>
+     <div className="App">
+      <button onClick={toggle}>toggle</button>
+      <Abc />
       </div>
+   </ThemeContext.Provider>
     
     
   );
@@ -226,4 +249,3 @@ function App() {
 
 
 export default App;
-// chức năng todo_list update 
